@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parcel — chats saved on your computer</title>
+  <meta name="description" content="Parcel exports the open ChatGPT, Claude, or Gemini chat to Markdown on your device. An optional one-time library stays on this computer.">
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      line-height: 1.55;
+      background: #f7f7f5;
+      color: #1c1c1e;
+    }
+    main { max-width: 40rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+    h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 0.5rem; }
+    h2 { font-size: 1.15rem; margin: 2.25rem 0 0.5rem; }
+    p, li { font-size: 1rem; }
+    .lead { font-size: 1.125rem; }
+    a { color: inherit; }
+    ul { padding-left: 1.2rem; }
+    footer { margin-top: 3rem; font-size: 0.9rem; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #161616; color: #f2f2f0; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Parcel</h1>
+    <p class="lead">Export the ChatGPT, Claude, or Gemini chat you have open. The file stays on your computer.</p>
+    <p>Markdown export is free. An optional one-time purchase unlocks a library on this device: save, search, see which site a chat came from, rename, download one chat, download a ZIP, and delete. There is no subscription and no cloud library.</p>
+    <p>Parcel is an independent extension. It is not affiliated with OpenAI, Anthropic, or Google.</p>
+
+    <h2 id="privacy">Privacy</h2>
+    <p>Parcel exports the ChatGPT, Claude, or Gemini chat you have open, and can keep a copy in a library on this device.</p>
+
+    <h2>What stays on this device</h2>
+    <ul>
+      <li>Export creates a Markdown file in the browser when you click Export. Chrome saves that file, usually in your Downloads folder.</li>
+      <li>Save stores the chat title, the Markdown, the page address, and the time in a library inside Chrome on this computer. Search, rename, download, ZIP, and delete use that local copy.</li>
+      <li>Parcel does not upload chat text, titles, or message content. There is no Parcel server and no Parcel account.</li>
+      <li>Library entries stay until you delete them or the browser removes the extension’s local data. Deleting a library entry does not delete files already downloaded. Clearing a license does not delete the library.</li>
+      <li>Existing saved chats can be searched, renamed, downloaded, exported as ZIP, and deleted without a current license. A license is required to save new copies.</li>
+    </ul>
+
+    <h2>What the extension reads</h2>
+    <ul>
+      <li>On chatgpt.com, claude.ai, or gemini.google.com, when you click Export or Save, Parcel reads the conversation you have open. It uses the login already in that tab for that read. It does not save the login. The conversation is written only to the file you download or to the library on this device.</li>
+      <li>On Gemini, Parcel observes whether history requests are loading. Export or Save may scroll to load earlier messages, then restore the reading position. The history signal is not sent to Parcel or to the license service.</li>
+    </ul>
+
+    <h2>License check</h2>
+    <ul>
+      <li>Activating a license sends the license key and a generated installation name to Lemon Squeezy at api.lemonsqueezy.com.</li>
+      <li>Subsequent license checks send the key and, when present, the installation identifier returned during activation. Checks occur when opening the popup or saving a new copy. Concurrent checks share one request. Chat text, chat titles, and conversation addresses are not included.</li>
+      <li>Parcel stores the key, installation identifiers, verified store and product identity, validation time, and license status in Chrome’s local extension storage. It does not store customer names or email addresses returned by the license service.</li>
+      <li>A previously verified Parcel license can authorize new saves during a network failure for up to seven days after its last successful check. An explicit rejection disables new saves. Previously saved chats remain accessible.</li>
+      <li>A local test unlock exists only while a developer loads Parcel unpacked. Installs from the Chrome Web Store do not offer it.</li>
+    </ul>
+
+    <h2>Permissions</h2>
+    <ul>
+      <li>chatgpt.com, claude.ai, and gemini.google.com — read the open conversation when you click Export or Save.</li>
+      <li>api.lemonsqueezy.com — activate and validate the library license.</li>
+      <li>storage — remember the license state on this device.</li>
+      <li>activeTab — find and communicate with the open chat when using the popup.</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>Support email: <a href="mailto:nymphs.club@gmail.com">nymphs.club@gmail.com</a></p>
+    <p>This page is the public privacy policy: <a href="https://vinayak509143.github.io/parcel/">https://vinayak509143.github.io/parcel/</a></p>
+    <footer>Parcel keeps the conversation on the computer where you exported it.</footer>
+  </main>
+</body>
+</html>
