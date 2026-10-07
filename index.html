@@ -31,7 +31,7 @@
   <main>
     <h1>Parcel</h1>
     <p class="lead">Export the ChatGPT, Claude, or Gemini chat you have open. The file stays on your computer.</p>
-    <p>Markdown export is free. An optional one-time purchase unlocks a library on this device: save, search, see which site a chat came from, rename, download one chat, download a ZIP, and delete. There is no subscription and no cloud library.</p>
+    <p>Markdown export is free. An optional one-time purchase unlocks a library on this device: save, search, read, see which site a chat came from, rename, copy, download one chat, download a ZIP, and delete. There is no subscription and no cloud library.</p>
     <p>Parcel is an independent extension. It is not affiliated with OpenAI, Anthropic, or Google.</p>
 
     <h2 id="privacy">Privacy</h2>
@@ -40,31 +40,40 @@
     <h2>What stays on this device</h2>
     <ul>
       <li>Export creates a Markdown file in the browser when you click Export. Chrome saves that file, usually in your Downloads folder.</li>
-      <li>Save stores the chat title, the Markdown, the page address, and the time in a library inside Chrome on this computer. Search, rename, download, ZIP, and delete use that local copy.</li>
+      <li>Save stores the chat title, the Markdown, the page address, the save time, and partial-save status in the extension's IndexedDB library inside this Chrome profile. Search, reading, rename, download, ZIP, and delete use that local copy.</li>
+      <li>Copy Markdown writes the saved conversation to the device clipboard when you request it. The library does not sync between devices, and Parcel does not add application-level encryption to saved copies or downloaded files.</li>
       <li>Parcel does not upload chat text, titles, or message content. There is no Parcel server and no Parcel account.</li>
-      <li>Library entries stay until you delete them or the browser removes the extension’s local data. Deleting a library entry does not delete files already downloaded. Clearing a license does not delete the library.</li>
-      <li>Existing saved chats can be searched, renamed, downloaded, exported as ZIP, and deleted without a current license. A license is required to save new copies.</li>
+      <li>Library entries stay until you delete them or the browser removes the extension's local data. Deleting a library entry does not delete files already downloaded. Clearing a license does not delete the library.</li>
+      <li>Existing saved chats can be searched, read, copied, renamed, downloaded, exported as ZIP, and deleted without a current license. A license is required to save new copies.</li>
     </ul>
 
     <h2>What the extension reads</h2>
     <ul>
-      <li>On chatgpt.com, claude.ai, or gemini.google.com, when you click Export or Save, Parcel reads the conversation you have open. It uses the login already in that tab for that read. It does not save the login. The conversation is written only to the file you download or to the library on this device.</li>
-      <li>On Gemini, Parcel observes whether history requests are loading. Export or Save may scroll to load earlier messages, then restore the reading position. The history signal is not sent to Parcel or to the license service.</li>
+      <li>On chatgpt.com, claude.ai, or gemini.google.com, when you click Export or Save, Parcel reads the conversation you have open. The content can include personal information you have placed in that conversation. Parcel also handles the conversation's title and URL to identify and label the exported or saved copy.</li>
+      <li>Parcel uses the login already in the chat tab. The ChatGPT reader temporarily obtains a session access token and sends it back to ChatGPT to request the selected conversation. Claude requests use the existing signed-in session. Parcel does not retain provider login credentials or send them to Polar.</li>
+      <li>While Gemini is open, a bundled page script checks whether matching history network requests are loading or have completed. It does not record a network log or read request bodies for analytics. Export or Save may scroll to load earlier messages, then restore the reading position. The history-loading signal is not sent to Parcel or Polar.</li>
     </ul>
 
     <h2>License check</h2>
     <ul>
-      <li>Activating a license sends the license key and a generated installation name to Lemon Squeezy at api.lemonsqueezy.com.</li>
-      <li>Subsequent license checks send the key and, when present, the installation identifier returned during activation. Checks occur when opening the popup or saving a new copy. Concurrent checks share one request. Chat text, chat titles, and conversation addresses are not included.</li>
-      <li>Parcel stores the key, installation identifiers, verified store and product identity, validation time, and license status in Chrome’s local extension storage. It does not store customer names or email addresses returned by the license service.</li>
+      <li>Activating a license sends the license key, the Polar organization id, and a generated installation name to Polar at api.polar.sh. If that license does not use device activations, Polar declines the activation request and Parcel validates the key without an installation id.</li>
+      <li>Subsequent license checks send the key, organization id, benefit id, and the installation id when one was stored. Checks occur when opening the popup or saving a new copy; concurrent checks share one request. Chat text, chat titles, and conversation addresses are not included.</li>
+      <li>Parcel stores the key, installation identifiers, verified organization and benefit ids, validation time, and license status in Chrome's local extension storage. It does not store customer names or email addresses returned by Polar.</li>
       <li>A previously verified Parcel license can authorize new saves during a network failure for up to seven days after its last successful check. An explicit rejection disables new saves. Previously saved chats remain accessible.</li>
       <li>A local test unlock exists only while a developer loads Parcel unpacked. Installs from the Chrome Web Store do not offer it.</li>
     </ul>
 
+    <h2>Purchase and license service</h2>
+    <p>The optional paid library uses Polar for checkout and license services. Parcel's extension does not read payment-card details or transaction history from the checkout. Polar processes information under its own <a href="https://polar.sh/legal/privacy-policy">privacy policy</a>, which describes purchase, contact, device/IP and related service data. Requests to Polar travel over HTTPS. Conversation content is not included in license requests.</p>
+    <p>Clearing a license removes Parcel's local license state; it does not delete purchase records held by Polar or remove downloaded files. Use Polar's published privacy contacts for requests about information it holds.</p>
+
+    <h2>Use of information</h2>
+    <p>Parcel uses conversation data for the requested export and local-library features, and license information to authorize new saves. The extension does not send conversation content for advertising or analytics, sell that content, or use it for lending or creditworthiness decisions. It does not create a general browser-history database or record clicks and keystrokes for analytics. The Gemini loading observation described above supports conversation extraction.</p>
+
     <h2>Permissions</h2>
     <ul>
       <li>chatgpt.com, claude.ai, and gemini.google.com — read the open conversation when you click Export or Save.</li>
-      <li>api.lemonsqueezy.com — activate and validate the library license.</li>
+      <li>api.polar.sh — activate and validate the library license.</li>
       <li>storage — remember the license state on this device.</li>
       <li>activeTab — find and communicate with the open chat when using the popup.</li>
     </ul>
