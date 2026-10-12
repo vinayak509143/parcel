@@ -31,7 +31,7 @@
   <main>
     <h1>Parcel</h1>
     <p class="lead">Export the ChatGPT, Claude, or Gemini chat you have open. The file stays on your computer.</p>
-    <p>Markdown export is free. An optional one-time purchase unlocks a library on this device: save, search, read, organize with folders and favorites, keep excerpts and prompt templates, rename, copy, download, back up, restore, and delete. There is no subscription and no cloud library.</p>
+    <p>Markdown export is free. A library on this device lets you save, search, read, organize with folders and favorites, keep excerpts and prompt templates, rename, copy, download, back up, restore, and delete. Your first 10 library saves are free; after that, an optional one-time purchase unlocks unlimited saving. There is no subscription and no cloud library.</p>
     <p>Parcel is an independent extension. It is not affiliated with OpenAI, Anthropic, or Google.</p>
 
     <h2 id="privacy">Privacy</h2>
@@ -48,8 +48,8 @@
       <li>Copy Markdown writes the saved conversation to the device clipboard when you request it. The library does not sync between devices, and Parcel does not add application-level encryption to saved copies or downloaded files.</li>
       <li>Parcel does not upload chat text, titles, or message content. There is no Parcel server and no Parcel account.</li>
       <li>Library entries stay until you delete them or the browser removes the extension's local data. Deleting a library entry does not delete files already downloaded. Clearing a license does not delete the library.</li>
-      <li>Existing saved chats can be searched, read, copied, renamed, downloaded, exported as ZIP, and deleted without a current license. A license is required to save new copies.</li>
-      <li>The same one-time license authorizes new excerpts, templates and duplicate copies. Editing and organizing existing items, backups and restore remain available without a current license. Deleting a source chat keeps its excerpt snapshots; deleting a folder keeps its items. Deleting an item removes its local content and catalog record; associated excerpts are independent saved items.</li>
+      <li>Existing saved chats can be searched, read, copied, renamed, downloaded, exported as ZIP, and deleted without a current license. The first 10 new library items are free; after that, a license is required to save new copies.</li>
+      <li>Free saves and the same one-time license also cover new excerpts, templates and duplicate copies. Parcel counts free saves as a single number in Chrome's local extension storage. Items already in the library, including restored ones, count toward the free saves. Deleting an item does not return a free save. Removing Parcel deletes the count along with the library. Editing and organizing existing items, backups and restore remain available without a current license. Deleting a source chat keeps its excerpt snapshots; deleting a folder keeps its items. Deleting an item removes its local content and catalog record; associated excerpts are independent saved items.</li>
       <li>Back up library downloads an unencrypted ZIP containing conversation text and library metadata. Backups contain no license keys or installation identifiers. Restore imports only after preview and confirmation, merges into the local library and preserves conflicting versions. Legacy Parcel Markdown ZIPs cannot recover metadata that was never exported. Keep backup files private and delete downloaded copies yourself when no longer needed.</li>
 <li>Keep a folder copy writes that same unencrypted ZIP, named parcel-library-copy.zip, into a folder you choose. Parcel updates that file when you ask, and after library changes while the library page still has folder access. When Chrome asks for access again, the library shows Update folder copy and waits for you. The file stays on disk if you remove Parcel. Chrome still deletes the in-extension library on removal. The remembered folder is stored with the extension and is removed with it. After a new install, choose Restore backup and select that file.</li>
     </ul>
@@ -64,7 +64,7 @@
     <h2>License check</h2>
     <ul>
       <li>Activating a license sends the license key, the Polar organization id, and a generated installation name to Polar at api.polar.sh. If that license does not use device activations, Polar declines the activation request and Parcel validates the key without an installation id.</li>
-      <li>Subsequent license checks send the key, organization id, benefit id, and the installation id when one was stored. Checks occur when opening the popup or creating a new chat copy, excerpt, template or duplicate; concurrent checks share one request. Chat text, chat titles, conversation addresses and template content are not included.</li>
+      <li>Subsequent license checks send the key, organization id, benefit id, and the installation id when one was stored. Checks occur when opening the popup or creating a new chat copy, excerpt, template or duplicate, and only when a key is stored; concurrent checks share one request. Chat text, chat titles, conversation addresses and template content are not included.</li>
       <li>Parcel stores the key, installation identifiers, verified organization and benefit ids, validation time, and license status in Chrome's local extension storage. It does not store customer names or email addresses returned by Polar.</li>
       <li>A previously verified Parcel license can authorize new saves during a network failure for up to seven days after its last successful check. An explicit rejection disables new saves. Previously saved chats remain accessible.</li>
       <li>A local test unlock exists only while a developer loads Parcel unpacked. Installs from the Chrome Web Store do not offer it.</li>
@@ -81,7 +81,7 @@
     <ul>
       <li>chatgpt.com, claude.ai, and gemini.google.com — read the open conversation when you click Export, Copy Markdown or Save.</li>
       <li>api.polar.sh — activate and validate the library license.</li>
-      <li>storage — remember the license state on this device, and hold temporary reader navigation context in memory for this browser session.</li>
+      <li>storage — remember the license state and the free-save count on this device, and hold temporary reader navigation context in memory for this browser session.</li>
       <li>activeTab — find and communicate with the open chat when using the popup.</li>
       <li>alarms — schedule deletion of temporary reader navigation context one day after it was stored. Chrome may run that cleanup later, including while the device is asleep.</li>
     </ul>
